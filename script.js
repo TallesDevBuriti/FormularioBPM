@@ -3,18 +3,19 @@ $(document).ready(function () {
         $('.datepicker').datepicker({
             format: 'dd/mm/yyyy',
             todayHighlight: true,
-            autoclose: true
+            autoclose: true,
+            language: 'pt-BR',
+            orientation: 'auto'
         });
     });
 
     $('#box-dados-proprietarios').on('click', '#btn-close-tab', function() {
         $(this).closest('#box-proprietario').remove();
     });
-    
+
     $('#btn-add-new-line').click(function() {
         var customHtml = `
-                <div id="box-proprietario">
-                    <hr>
+                <div id="box-proprietario" class="border rounded mt-3 p-3">
                     <div class="d-flex justify-content-end mb-3">
                         <button type="button" id="btn-close-tab" class="btn btn-light btn-sm">
                             <img src="./src/img/icons/close_tab.svg" alt="Icone de fechar aba">
@@ -39,14 +40,14 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>`;
-        
+
         $('#box-dados-proprietarios').append(customHtml);
     });
-    
+
     // Consulta API de CEP
     $("#btn-search-cep").click(function() {
         let inputTextCep = $(".box-search-cep").val();
-    
+
         fetch(`https://viacep.com.br/ws/${inputTextCep}/json/`)
         .then(response => response.json())
         .then(data => {
@@ -57,11 +58,11 @@ $(document).ready(function () {
                 $('.box-estado').prop('disabled', true);
                 $('.box-municipio').prop('disabled', true);
             } else {
-                console.error('Resposta inválida da API');
+                swal ( "Oops" ,  "O CEP informado é inválido. Por favor, insira um CEP válido." ,  "error" )
             }
         })
         .catch(error => {
-            console.error('Erro ao consultar a API:', error);
+            swal ( "Oops" ,  "Algo de errado aconteceu" ,  "error" )
         });
     });
 
@@ -76,10 +77,9 @@ $(document).ready(function () {
 
     // Format string to CEP (ZipCode)
     $('#cepArea').on('input', function() {
-        console.log('foi')
         let value = $(this).val();
         value = value.replace(/\D/g, '');
         value = value.replace(/^(\d{5})(\d)/, '$1-$2');
         $(this).val(value);
-    })   
+    })
 })
