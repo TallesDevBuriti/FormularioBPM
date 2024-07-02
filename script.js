@@ -23,19 +23,19 @@ $(document).ready(function () {
                     </div>
                     <div class="row g-2">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="nomeProp" placeholder="Fulano de Tal...">
+                            <input type="text" class="form-control" id="nomeProp" placeholder="Preencha o nome do proprietário..." required>
                             <label for="floatingInputGrid">Nome do Proprietário *</label>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                              <input type="tel" class="form-control propPhone" id="contatoProp" maxlength="15" placeholder="(00) 00000-0000">
+                              <input type="tel" id="contatoProp" class="form-control propPhone" maxlength="15" placeholder="(00) 00000-0000" required>
                               <label for="floatingInputGrid">Contato *</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                              <input type="email" class="form-control" id="emailProp" placeholder="Fulano de Tal...">
-                              <label for="floatingInputGrid">Email *</label>
+                              <input type="email" class="form-control" id="emailProp" placeholder="abcdefgh@email.com" required>
+                              <label for="floatingInputGrid">E-mail *</label>
                             </div>
                         </div>
                     </div>
