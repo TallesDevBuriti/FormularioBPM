@@ -1,13 +1,11 @@
-$(document).ready(function () {
-    $(document).ready(function(){
-        $('.datepicker').datepicker({
-            format: 'dd/mm/yyyy',
-            todayHighlight: true,
-            autoclose: true,
-            language: 'pt-BR',
-            orientation: 'auto'
-        });
-    });
+$(document).ready(function () {  
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        autoclose: true,
+        language: 'pt-BR',
+        orientation: 'auto'
+    });  
 
     $('#box-dados-proprietarios').on('click', '#btn-close-tab', function() {
         $(this).closest('#box-proprietario').remove();
@@ -55,8 +53,7 @@ $(document).ready(function () {
                 $('.box-estado').val(data.uf);
                 $('.box-municipio').val(data.localidade);
 
-                $('.box-estado').prop('disabled', true);
-                $('.box-municipio').prop('disabled', true);
+                $('.box-estado, .box-municipio').prop('disabled', true);
             } else {
                 swal ( "Oops" ,  "O CEP informado é inválido. Por favor, insira um CEP válido." ,  "error" )
             }
