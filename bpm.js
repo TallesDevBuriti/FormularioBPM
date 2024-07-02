@@ -34,15 +34,12 @@ function _saveData(data, info) {
     const dadosProprietarios = [];
     let blocksProp = document.querySelectorAll('#box-proprietario');
   
-    newData.dataEntrada = document.getElementById("dataEntrada").value;
+    // Aba 1
+    newData.nomFun = document.getElementById("nomFun").value;
     newData.area = selectArea.options[selectArea.selectedIndex].value;
-    newData.regArea = selectRegArea.options[selectRegArea.selectedIndex].value;
-    newData.cepArea = document.getElementById("cepArea").value;
-    newData.cepEstado = document.getElementById("cepEstado").value;
-    newData.municipio = document.getElementById("municipio").value;
-    newData.areaHect = document.getElementById("areaHect").value;
-    newData.areaMQ = document.getElementById("areaMQ").value;
- 
+    newData.dataEntrada = document.getElementById("dataEntrada").value;
+
+    // Aba 2
     blocksProp.forEach(function(block) {
         const nomeProp = block.querySelector('#nomeProp').value;
         const contatoProp = block.querySelector('#contatoProp').value;
@@ -52,7 +49,15 @@ function _saveData(data, info) {
     })
     
     newData.props = dadosProprietarios;
-
+    
+    // Aba 3
+    newData.regArea = selectRegArea.options[selectRegArea.selectedIndex].value;
+    newData.cepArea = document.getElementById("cepArea").value;
+    newData.cepEstado = document.getElementById("cepEstado").value;
+    newData.municipio = document.getElementById("municipio").value;
+    newData.areaHect = document.getElementById("areaHect").value;
+    newData.areaMQ = document.getElementById("areaMQ").value;
+ 
     console.log(newData);
     return {
       formData: newData,
