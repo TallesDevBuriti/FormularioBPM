@@ -13,7 +13,7 @@ function _init(data, info) {
     info
         .getUserData()
         .then(function (user) {
-            document.getElementByClassName("nomFun").setAttribute("value", user.fullname);
+            document.querySelector(".nomFun").setAttribute("value", user.fullname);
         })
         .then(function () {
         info.getPlatformData().then(function (platformData) {
